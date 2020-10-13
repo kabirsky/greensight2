@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/greensight2/static/css/main.28b91e29.chunk.css",
+    "main.js": "/greensight2/static/js/main.b2ab5b15.chunk.js",
+    "main.js.map": "/greensight2/static/js/main.b2ab5b15.chunk.js.map",
+    "runtime-main.js": "/greensight2/static/js/runtime-main.95f630c9.js",
+    "runtime-main.js.map": "/greensight2/static/js/runtime-main.95f630c9.js.map",
+    "static/js/2.e5f1a6ec.chunk.js": "/greensight2/static/js/2.e5f1a6ec.chunk.js",
+    "static/js/2.e5f1a6ec.chunk.js.map": "/greensight2/static/js/2.e5f1a6ec.chunk.js.map",
+    "index.html": "/greensight2/index.html",
+    "precache-manifest.77e81c5000c06e80a057a6e0ebea010a.js": "/greensight2/precache-manifest.77e81c5000c06e80a057a6e0ebea010a.js",
+    "service-worker.js": "/greensight2/service-worker.js",
+    "static/css/main.28b91e29.chunk.css.map": "/greensight2/static/css/main.28b91e29.chunk.css.map",
+    "static/js/2.e5f1a6ec.chunk.js.LICENSE.txt": "/greensight2/static/js/2.e5f1a6ec.chunk.js.LICENSE.txt",
+    "static/media/Search.css": "/greensight2/static/media/Cross.09ce47be.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.95f630c9.js",
+    "static/js/2.e5f1a6ec.chunk.js",
+    "static/css/main.28b91e29.chunk.css",
+    "static/js/main.b2ab5b15.chunk.js"
+  ]
+}
