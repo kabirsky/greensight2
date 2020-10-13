@@ -1,0 +1,9 @@
+.vacancies {
+  padding: 0;
+}
+
+@media (min-width: 721px) {
+  .vacancies {
+    padding: 20px 21px 18px 20px;
+  }
+}

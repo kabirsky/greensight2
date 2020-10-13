@@ -1,0 +1,129 @@
+.search {
+  padding-top: 6px;
+  margin-bottom: 32px;
+}
+
+/*Поле Form*/
+
+.search-form {
+  height: 67px;
+  border-bottom: 1px solid #000000;
+  margin-bottom: 16px;
+}
+
+/*Плейсхолдер для select упорно не хочет отзываться, поэтому всем опциям назначаем серый цвет, а всем не первым опциям назначаем черный*/
+.search-form__select {
+  width: 100%;
+  height: 29px;
+  border: 0;
+  outline: none;
+}
+
+.search-form__select:invalid {
+  color: #a3a6a9;
+}
+
+.search-form__select:focus {
+  border: 0;
+}
+
+.search-form__option {
+  font-family: Rubik;
+  line-height: 160%;
+  width: 100%;
+  color: #000000;
+  border: 0;
+  height: 29px;
+}
+
+/*Поле Posiotion*/
+
+.search-position {
+  height: 67px;
+  border-bottom: 1px solid #000000;
+  margin-bottom: 19px;
+}
+
+.text::placeholder {
+  color: #a3a6a9;
+}
+
+.search-position__text {
+  font-family: Rubik;
+  line-height: 160%;
+  height: 29px;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  /*Из-за того что убрать отступ у нативного селекта достаточно муторно - проще добавить его следующему полю, чтобы не бросалось в глаза*/
+  text-indent: 3px;
+}
+
+/*Кнопка*/
+.search-btn {
+  white-space: nowrap;
+  align-items: center;
+  width: 123px;
+}
+
+.search-btn__button {
+  display: inline-block;
+  color: #a3a6a9;
+  font-family: "Formular", sans-serif;
+  line-height: 160%;
+  padding-right: 12px;
+}
+
+.search-btn__cross {
+  display: inline-block;
+  content: "";
+  width: 12px;
+  height: 12px;
+  top: 25%;
+  right: 0;
+  background-image: url("../img/Cross.svg");
+  background-repeat: no-repeat;
+  background-size: 12px 12px;
+}
+
+.search-btn__button:hover,
+.search-btn__cross:hover {
+  cursor: pointer;
+}
+
+@media (min-width: 721px) {
+  .search {
+    padding-bottom: 7px;
+  }
+
+  .form {
+    display: flex;
+    align-items: flex-end;
+  }
+
+  .search-form {
+    width: 466px;
+    margin-bottom: 0;
+    margin-right: 19px;
+  }
+
+  .search-position {
+    width: 466px;
+    margin-bottom: 0;
+    margin-right: 19px;
+  }
+
+  .search-btn {
+    margin-left: auto;
+    align-items: flex-end;
+  }
+
+  .search-btn__button {
+    margin-bottom: 11px;
+  }
+
+  .description {
+    max-width: 689px;
+  }
+}
