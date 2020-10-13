@@ -7,7 +7,16 @@ function Search() {
       <form className="form">
         <div className="search-form">
           <label className="search-form__label label">Form</label>
-          <select required className="search-form__select">
+          <select
+            required
+            className="search-form__select"
+            onKeyPress={(e) => {
+              e.key === "Enter" && e.preventDefault();
+            }}
+            onSubmit={(e) => {
+              e.preventDefault();
+            }}
+          >
             <option
               className="search-form__option placeholder"
               value=""
@@ -36,6 +45,12 @@ function Search() {
             id="search-position__text"
             name="position"
             placeholder="Unspecified"
+            onKeyPress={(e) => {
+              e.key === "Enter" && e.preventDefault();
+            }}
+            onSubmit={(e) => {
+              e.preventDefault();
+            }}
           />
         </div>
 

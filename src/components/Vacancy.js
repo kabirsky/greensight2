@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import parse from "html-react-parser";
 import "../styles/Vacancy.css";
 
@@ -8,7 +8,13 @@ function Vacancy(props) {
       <div className="info">
         <div
           className="info-img-wrapper"
-          style={{ backgroundImage: `url(${props.company_logo === null ? "../img/No_image_available.svg" : props.company_logo})` }}
+          style={{
+            backgroundImage: `url(${
+              props.company_logo === null
+                ? "../img/No_image_available.svg"
+                : props.company_logo
+            })`,
+          }}
         ></div>
         <div className="info-text-wrapper">
           <p className="info-text info-text__form">
