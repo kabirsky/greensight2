@@ -62,16 +62,16 @@
 
 .description__header {
   font-style: Roboto;
-  font-weight:normal;
+  font-weight: normal;
   font-size: 22px;
   margin-bottom: 16px;
 }
-
 
 @media (min-width: 721px) {
   .vacancy {
     max-height: 331px;
     flex-direction: row;
+    padding: 20px 21px 18px 20px;
   }
   .info {
     overflow: hidden;
