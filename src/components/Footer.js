@@ -144,7 +144,6 @@ function Footer() {
                 Phone number
               </label>
               <MaskedInput
-                
                 className="form-phone__text text"
                 type="text"
                 id="form-phone__text"
@@ -197,8 +196,12 @@ function Footer() {
           <p className="contacts-box__advice">
             We will advise you and help you start a new project
           </p>
-          <p className="contacts-box__phone">+7 499 391-66-69</p>
-          <p className="contacts-box__email">mail@greensight.ru</p>
+          <p className="contacts-box__phone">
+            <a href="tel:+7-499-391-66-69">+7 499 391-66-69</a>
+          </p>
+          <p className="contacts-box__email">
+            <a href="mailto:mail@greensight.ru">mail@greensight.ru</a>
+          </p>
           <p className="contacts-box__address">
             {[
               "Moscow, Zelenograd, Central Ave.,",
