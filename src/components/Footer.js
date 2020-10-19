@@ -178,7 +178,7 @@ function Footer() {
               <div className="consent-wrapper">
                 <p className="consent">
                   By clicking "Send" you confirm your consent to the{" "}
-                  <span>processing of personal data</span>
+                  <span className="consent__link">processing of personal data</span>
                 </p>
               </div>
             </div>

@@ -4,6 +4,7 @@
 }
 
 /*Поле Form*/
+/*Плейсхолдер для select упорно не хочет отзываться, поэтому всем опциям назначаем серый цвет, а всем не первым опциям назначаем черный*/
 
 .search-form {
   height: 67px;
@@ -11,13 +12,20 @@
   margin-bottom: 16px;
 }
 
-/*Плейсхолдер для select упорно не хочет отзываться, поэтому всем опциям назначаем серый цвет, а всем не первым опциям назначаем черный*/
 .search-form__select {
   width: 100%;
   height: 29px;
   border: 0;
   outline: none;
   background-color: #ffffff; /*Нужно для мобильных браузеров*/
+  appearance: none;
+  background-repeat: no-repeat;
+  background-position: 100% 50% ;
+  background-image: url(../img/Select_Arrow.svg);
+}
+
+.search-form__select:hover {
+  cursor: pointer;
 }
 
 .search-form__select:invalid {
@@ -68,6 +76,7 @@
   font-family: "Formular", sans-serif;
   line-height: 160%;
   padding-right: 12px;
+  cursor: initial;
 }
 
 .search-btn-wrapper:hover {
@@ -98,6 +107,7 @@
 }
 
 .search-btn-wrapper__disabled:hover,
+.search-btn-wrapper__disabled > .search-btn:hover,
 .search-btn-wrapper__disabled > .search-btn__cross:hover {
   cursor: initial;
 }
