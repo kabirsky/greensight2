@@ -21,19 +21,21 @@ export default function getTestValues(props) {
   };
 
   let result = [];
+  for (let i = 0; i < 20; i++) {
+    result.push(
+      <Vacancy
+        key={i}
+        id={i}
+        company={original.company}
+        company_logo={original.company_logo}
+        type={original.type}
+        url={original.url}
+        location={original.location}
+        title={original.title}
+        description={original.description}
+      />
+    );
+  }
 
-  result.push(
-    <Vacancy
-      key={0}
-      id={0}
-      company={original.company}
-      company_logo={original.company_logo}
-      type={original.type}
-      url={original.url}
-      location={original.location}
-      title={original.title}
-      description={original.description}
-    />
-  );
   return result;
 }

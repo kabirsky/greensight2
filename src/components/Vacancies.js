@@ -26,11 +26,8 @@ function Vacancies(props) {
   useEffect(() => {
     if (!isTest) {
       new JobApi().getJobs(setVacanciesJSON, setVacancies);
-      console.log(vacanciesJSON);
-      console.log(vacancies);
     } else {
       setVacancies(getTestValues());
-      setEnd(1);
     }
     // eslint-disable-next-line
   }, []);
@@ -45,6 +42,7 @@ function Vacancies(props) {
 
   useEffect(() => {
     window.onscroll = null; //включаем скролл обратно после рендера
+    window.scrollTo(0, targetY); //Фикс для мобильных браузеров
   }, [targetY]);
 
   return (
