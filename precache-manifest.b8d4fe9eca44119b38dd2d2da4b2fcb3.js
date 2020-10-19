@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "50a5fa7177a5623ad999cf7e8273094e",
+    "revision": "b76347a52531b3a06c952e7aae06d258",
     "url": "/greensight2/index.html"
   },
   {
-    "revision": "63cc60087944d5bad43a",
+    "revision": "b3aa30cd158bf971e855",
     "url": "/greensight2/static/css/main.510f4b73.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/greensight2/static/js/2.4f0b06c6.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "63cc60087944d5bad43a",
-    "url": "/greensight2/static/js/main.8b9e2796.chunk.js"
+    "revision": "b3aa30cd158bf971e855",
+    "url": "/greensight2/static/js/main.17249e6c.chunk.js"
   },
   {
     "revision": "bbdb90b1a8b9c3f50b57",
