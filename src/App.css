@@ -28,6 +28,7 @@
   padding: 0;
   border: 0;
   outline: 0;
+  width: 100%;
 }
 
 .btn {
@@ -45,7 +46,7 @@
   .container {
     padding: 81px 30px 164px 30px;
   }
-  
+
   .header {
     margin-bottom: 74px;
   }
