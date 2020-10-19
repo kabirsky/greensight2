@@ -1,10 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../styles/Search.css";
 
 function Search(props) {
   let select_value = props.select_value;
   let setSelectValue = props.setSelectValue;
   let [position_value, setPositionValue] = useState("");
+  let [searchButton, setSearchButton] = useState("search-btn-wrapper");
+
+  useEffect(() => {
+    if (select_value === "" && position_value === "") {
+      setSearchButton("search-btn-wrapper search-btn-wrapper__disabled");
+    } else {
+      setSearchButton("search-btn-wrapper");
+    }
+  }, [select_value, position_value]);
 
   let handleSelectChange = (event) => {
     setSelectValue(event.target.value);
@@ -21,7 +30,12 @@ function Search(props) {
 
   return (
     <div className="search">
-      <form className="form">
+      <form
+        className="form"
+        onSubmit={(e) => {
+          e.preventDefault();
+        }}
+      >
         <div className="search-form">
           <label className="search-form__label label">Form</label>
           <select
@@ -31,9 +45,6 @@ function Search(props) {
             onChange={handleSelectChange}
             onKeyPress={(e) => {
               e.key === "Enter" && e.preventDefault();
-            }}
-            onSubmit={(e) => {
-              e.preventDefault();
             }}
           >
             <option
@@ -68,19 +79,15 @@ function Search(props) {
             onKeyPress={(e) => {
               e.key === "Enter" && e.preventDefault();
             }}
-            onSubmit={(e) => {
-              e.preventDefault();
-            }}
           />
         </div>
 
-        <div className="search-btn-wrapper">
+        <div className={searchButton} onClick={handleButtonClick}>
           <input
             className="search-btn btn"
             type="button"
             id="search-btn"
             value="Clear sorting"
-            onClick={handleButtonClick}
           />
           <label className="search-btn__cross" htmlFor="search-btn"></label>
         </div>
