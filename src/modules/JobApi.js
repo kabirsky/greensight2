@@ -15,6 +15,7 @@ export default class JobApi {
         temp.push(
           <Vacancy
             key={i}
+            id={i}
             company={jobs[i].company}
             company_logo={jobs[i].company_logo}
             type={jobs[i].type}

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import parse from "html-react-parser";
 import "../styles/Vacancy.css";
 
@@ -10,8 +10,8 @@ function Vacancy(props) {
   let [description, setDescription] = useState("description");
   let [description__text, setDescriptionText] = useState("description__text");
   let [buttonValue, setButtonValue] = useState("more details");
+  let vacancyRef = useRef(null);
 
-  
   useEffect(() => {
     if (props.company_logo === null) {
       setCompanyLogo(no_image_available);
@@ -20,6 +20,12 @@ function Vacancy(props) {
     }
     // eslint-disable-next-line
   }, []);
+
+  useEffect(() => {
+    if (props.focusTarget === props.id) {
+      window.scrollTo(0, vacancyRef.current.offsetTop);
+    }
+  });
 
   let handleImageErrored = () => {
     setCompanyLogo(no_image_available);
@@ -40,7 +46,7 @@ function Vacancy(props) {
   };
 
   return (
-    <div className={vacancy}>
+    <div className={vacancy} ref={vacancyRef}>
       <div className="info">
         <div className="info-img-wrapper">
           <img

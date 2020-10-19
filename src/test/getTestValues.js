@@ -1,7 +1,7 @@
 import React from "react";
 import Vacancy from "../components/Vacancy";
 
-export default function getTestValues() {
+export default function getTestValues(props) {
   let original = {
     id: "44f33eb4-8cc4-464f-8bbb-c76179f2b209",
     type: "Full Time",
@@ -25,6 +25,7 @@ export default function getTestValues() {
   result.push(
     <Vacancy
       key={0}
+      id={0}
       company={original.company}
       company_logo={original.company_logo}
       type={original.type}

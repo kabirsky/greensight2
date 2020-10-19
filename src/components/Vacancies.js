@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import JobApi from "../modules/JobApi";
 
 import getTestValues from "../test/getTestValues";
@@ -10,6 +10,17 @@ function Vacancies(props) {
   let [vacancies, setVacancies] = useState([]);
   let [end, setEnd] = useState(5);
   let select_value = props.select_value;
+  let visibleVacancies =
+    select_value === ""
+      ? vacancies.slice(0, end)
+      : vacancies
+          .filter((val) => {
+            return val.props.type === select_value;
+          })
+          .slice(0, end);
+
+  let vacanciesRef = useRef(null);
+  let [focusTarget, setFocusTarget] = useState(-1);
 
   /*Проставить true если надо посмотреть на функционал без API запросов*/
   let isTest = false;
@@ -27,21 +38,16 @@ function Vacancies(props) {
   }, []);
 
   let handleButtonClick = () => {
+    setFocusTarget(end - 1);
     setEnd(end + 5);
   };
 
-  let visibleVacancies =
-    select_value === ""
-      ? vacancies.slice(0, end)
-      : vacancies
-          .filter((val) => {
-            return val.props.type === select_value;
-          })
-          .slice(0, end);
-
   return (
-    <div className="vacancies">
-      {visibleVacancies}
+    <div className="vacancies" ref={vacanciesRef}>
+      {visibleVacancies.map((val) =>
+        React.cloneElement(val, { focusTarget }, null)
+      )}
+      {/* {visibleVacancies} */}
       <div className="vacancies__more-btn-wrapper">
         <input
           className="vacancies__more-btn btn"
