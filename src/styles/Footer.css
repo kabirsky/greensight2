@@ -46,6 +46,11 @@
   border-bottom: 1px dashed #000000;
 }
 
+.form-element__error {
+  /* border: 1px solid red; */
+  border-bottom: 1px solid red;
+}
+
 /*Контакты*/
 .contacts-box__advice {
   font-size: 18px;
@@ -70,7 +75,7 @@
   margin-bottom: 8px;
 }
 
-.link-nav{
+.link-nav {
   line-height: 150%;
 }
 
@@ -92,7 +97,7 @@
     justify-content: space-between;
   }
 
-  .form-wrapper{
+  .form-wrapper {
     width: 438px;
   }
 
@@ -101,10 +106,10 @@
     padding-right: 50px;
   }
 
-  .contacts-box__advice{
+  .contacts-box__advice {
     margin-bottom: 74px;
   }
-  
+
   .contacts-box__phone {
     font-size: 32px;
   }
@@ -113,5 +118,4 @@
     font-size: 32px;
     margin-bottom: 78px;
   }
-
 }

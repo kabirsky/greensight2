@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import MaskedInput from "react-text-mask";
 import "../styles/Footer.css";
 
@@ -22,21 +22,83 @@ function Footer() {
     /[0-9]/,
     /[0-9]/,
   ];
+  const emailValidation = new RegExp(
+    /^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i
+  );
 
-  let handleKeyPress = (event) => {
-    event.key === "Enter" && event.preventDefault();
+  let isError = false;
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [comment, setComment] = useState("");
+
+  const [errorName, setErrorName] = useState("form-element form-name");
+  const [errorEmail, setErrorEmail] = useState("form-element form-email");
+  const [errorPhone, setErrorPhone] = useState("form-element form-phone");
+
+  const handleChangeName = (event) => {
+    setName(event.target.value);
   };
-  let handleSubmit = (event) => {
+  const handleChangePhone = (event) => {
+    setPhone(event.target.value);
+  };
+  const handleChangeEmail = (event) => {
+    setEmail(event.target.value);
+  };
+  const handleChangeComment = (event) => {
+    setComment(event.target.value);
+  };
+
+  const handleKeyPress = (event) => {
+    event.key === "Enter" && handleSubmit(event);
+  };
+
+  const handleSubmit = (event) => {
     event.preventDefault();
+    isError = false;
+    //Проверка ФИО
+    if (name === "") {
+      isError = true;
+      setErrorName("form-element form-name form-element__error");
+    } else {
+      if (name.match(/^[А-ЯЁ\s-]*$/i) === null) {
+        isError = true;
+        setErrorName("form-element form-name form-element__error");
+      } else {
+        setErrorName("form-element form-name");
+      }
+    }
+
+    //Проверка емейла
+    if (email === "" || !emailValidation.test(email)) {
+      isError = true;
+      setErrorEmail("form-element form-email form-element__error");
+    } else {
+      setErrorEmail("form-element form-email");
+    }
+
+    //Проверка телефона
+    if (phone === "" || phone.includes("_")) {
+      isError = true;
+      setErrorPhone("form-element form-phone form-element__error");
+    } else {
+      setErrorPhone("form-element form-phone");
+    }
+
+    if (!isError) {
+      alert(
+        `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nComment: ${comment}`
+      );
+    }
   };
 
   return (
     <footer className="footer">
       <h2 className="footer-title">Leave a request</h2>
       <div className="contacts">
-        <form className="form">
+        <form className="form" onSubmit={handleSubmit}>
           <div className="form-wrapper">
-            <div className="form-element form-name">
+            <div key="name" className={errorName}>
               <label
                 className="form-name__label label"
                 htmlFor="form-name__text"
@@ -49,12 +111,13 @@ function Footer() {
                 id="form-name__text"
                 name="name"
                 placeholder="Please introduce yourself"
+                value={name}
+                onChange={handleChangeName}
                 onKeyPress={handleKeyPress}
-                onSubmit={handleSubmit}
               />
             </div>
 
-            <div className="form-element form-email">
+            <div key="email" className={errorEmail}>
               <label
                 className="form-email__label label"
                 htmlFor="form-email__text"
@@ -67,12 +130,13 @@ function Footer() {
                 id="form-email__text"
                 name="email"
                 placeholder="ivanov@mail.ru"
+                value={email}
+                onChange={handleChangeEmail}
                 onKeyPress={handleKeyPress}
-                onSubmit={handleSubmit}
               />
             </div>
 
-            <div className="form-element form-phone">
+            <div key="phone" className={errorPhone}>
               <label
                 className="form-phone__label label"
                 htmlFor="form-phone__text"
@@ -80,18 +144,20 @@ function Footer() {
                 Phone number
               </label>
               <MaskedInput
+                
                 className="form-phone__text text"
                 type="text"
                 id="form-phone__text"
                 name="phone"
                 mask={mask}
                 placeholder="+7(999)123-45-78"
+                value={phone}
+                onChange={handleChangePhone}
                 onKeyPress={handleKeyPress}
-                onSubmit={handleSubmit}
               />
             </div>
 
-            <div className="form-element form-comment">
+            <div key="comment" className="form-element form-comment">
               <label
                 className="form-comment__label label"
                 htmlFor="form-comment__text"
@@ -104,17 +170,19 @@ function Footer() {
                 id="form-comment__text"
                 name="comment"
                 placeholder="Message text"
+                value={comment}
+                onChange={handleChangeComment}
                 onKeyPress={handleKeyPress}
-                onSubmit={handleSubmit}
               />
             </div>
 
             <div className="form-btn-wrapper">
               <input
                 className="form-btn btn"
-                type="button"
+                type="submit"
                 id="form-btn"
                 value="Send"
+                onKeyPress={handleKeyPress}
               />
               <div className="consent-wrapper">
                 <p className="consent">
