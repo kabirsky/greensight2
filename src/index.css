@@ -1,5 +1,5 @@
 /* Подключаем шрифты */
-@import url("https://fonts.googleapis.com/css2?family=Rubik&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Rubik&display=swap');
 
 /* @font-face {
   font-family: "Formular";
@@ -36,7 +36,7 @@
 body {
   min-height: 100vh;
   margin: 0;
-  font-family: "Roboto", sans-serif;
+  font-family: "Rubik", sans-serif;
   font-size: 16px;
   line-height: 140%;
   color: #000000;

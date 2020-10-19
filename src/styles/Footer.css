@@ -1,0 +1,117 @@
+.footer-title {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 32px;
+  line-height: 38px;
+  margin-bottom: 32px;
+}
+
+/*Форма отклика*/
+.search-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-element {
+  border-bottom: 1px solid #000000;
+  margin-bottom: 29px;
+}
+
+.form-element input {
+  margin-bottom: 7px;
+  /*Из-за проблематичности убирания внутреннего отступа у селекта сделал такой же отступ у всех инпутов*/
+  text-indent: 3px;
+}
+
+.form-btn {
+  width: 226px;
+  height: 48px;
+  background-color: #000000;
+  color: #ffffff;
+  margin-top: 3px;
+}
+
+.form-btn:hover {
+  text-decoration: underline;
+}
+
+.consent-wrapper {
+  font-size: 14px;
+  line-height: 160%;
+  margin-top: 43px;
+  margin-bottom: 32px;
+}
+
+.consent span {
+  border-bottom: 1px dashed #000000;
+}
+
+/*Контакты*/
+.contacts-box__advice {
+  font-size: 18px;
+  line-height: 160%;
+  margin-bottom: 33px;
+}
+
+.contacts-box__phone {
+  font-size: 22px;
+  line-height: 24px;
+  margin-bottom: 18px;
+}
+
+.contacts-box__email {
+  font-size: 22px;
+  line-height: 145%;
+  margin-bottom: 33px;
+}
+
+.contacts-box__address {
+  line-height: 160%;
+  margin-bottom: 8px;
+}
+
+.link-nav{
+  line-height: 150%;
+}
+
+.link-nav:hover {
+  border-bottom: 1px solid #000000;
+}
+
+@media (min-width: 1024px) {
+  .footer-title {
+    margin-bottom: 74px;
+  }
+
+  .consent-wrapper {
+    display: none;
+  }
+
+  .contacts {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .form-wrapper{
+    width: 438px;
+  }
+
+  .contacts-box {
+    max-width: 400px;
+    padding-right: 50px;
+  }
+
+  .contacts-box__advice{
+    margin-bottom: 74px;
+  }
+  
+  .contacts-box__phone {
+    font-size: 32px;
+  }
+
+  .contacts-box__email {
+    font-size: 32px;
+    margin-bottom: 78px;
+  }
+
+}

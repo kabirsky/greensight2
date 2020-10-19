@@ -1,7 +1,22 @@
 .vacancies {
-  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 0 40px 0;
 }
 
-@media (min-width: 721px) {
+.vacancies__more-btn {
+  width: 226px;
+  height: 48px;
+  background-color: #000000;
+  color: #ffffff;
+  margin-top: 3px;
+}
+
+.vacancies__more-btn:hover {
+  text-decoration: underline;
+}
+
+@media (min-width: 1024px) {
 
 }

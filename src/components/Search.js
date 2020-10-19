@@ -1,7 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import "../styles/Search.css";
 
-function Search() {
+function Search(props) {
+  let select_value = props.select_value;
+  let setSelectValue = props.setSelectValue;
+  let [position_value, setPositionValue] = useState("");
+
+  let handleSelectChange = (event) => {
+    setSelectValue(event.target.value);
+  };
+
+  let handlePositionChange = (event) => {
+    setPositionValue(event.target.value);
+  };
+
+  let handleButtonClick = () => {
+    setSelectValue("");
+    setPositionValue("");
+  };
+
   return (
     <div className="search">
       <form className="form">
@@ -10,6 +27,8 @@ function Search() {
           <select
             required
             className="search-form__select"
+            value={select_value}
+            onChange={handleSelectChange}
             onKeyPress={(e) => {
               e.key === "Enter" && e.preventDefault();
             }}
@@ -22,13 +41,12 @@ function Search() {
               value=""
               hidden
               disabled
-              selected
             >
               Not selected
             </option>
-            <option className="search-form__option">Full time</option>
-            <option className="search-form__option">Half time</option>
-            <option className="search-form__option">Part time</option>
+            <option className="search-form__option">Full Time</option>
+            <option className="search-form__option">Half Time</option>
+            <option className="search-form__option">Part Time</option>
           </select>
         </div>
 
@@ -45,6 +63,8 @@ function Search() {
             id="search-position__text"
             name="position"
             placeholder="Unspecified"
+            value={position_value}
+            onChange={handlePositionChange}
             onKeyPress={(e) => {
               e.key === "Enter" && e.preventDefault();
             }}
@@ -54,14 +74,15 @@ function Search() {
           />
         </div>
 
-        <div className="search-btn">
+        <div className="search-btn-wrapper">
           <input
-            className="search-btn__button btn"
+            className="search-btn btn"
             type="button"
-            id="search-btn btn"
+            id="search-btn"
             value="Clear sorting"
+            onClick={handleButtonClick}
           />
-          <label className="search-btn__cross" htmlFor="search-btn btn"></label>
+          <label className="search-btn__cross" htmlFor="search-btn"></label>
         </div>
       </form>
     </div>

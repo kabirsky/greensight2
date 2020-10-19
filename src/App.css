@@ -4,13 +4,12 @@
   margin: 0 auto;
 }
 
-.header {
-  font-family: Rubik;
+.header-title {
+  font-family: "Rubik";
   font-style: normal;
   font-weight: normal;
   font-size: 32px;
   line-height: 38px;
-  color: #000000;
 
   margin-bottom: 32px;
 }
@@ -20,9 +19,15 @@
   height: 29px;
   padding: 0;
   margin: 0;
-  font-family: Rubik;
+  font-family: "Rubik";
   font-size: 16px;
   line-height: 160%;
+}
+
+.text {
+  padding: 0;
+  border: 0;
+  outline: 0;
 }
 
 .btn {
@@ -32,10 +37,15 @@
   background-color: #FFFFFF;
 }
 
-@media (min-width: 721px) {
+.btn:hover {
+  cursor: pointer;
+}
+
+@media (min-width: 1024px) {
   .container {
-    padding: 81px 0px 164px 0px;
+    padding: 81px 30px 164px 30px;
   }
+  
   .header {
     margin-bottom: 74px;
   }

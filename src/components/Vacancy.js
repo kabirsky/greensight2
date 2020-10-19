@@ -2,20 +2,54 @@ import React, { useEffect, useState } from "react";
 import parse from "html-react-parser";
 import "../styles/Vacancy.css";
 
+import no_image_available from "../img/no_image_available.svg";
+
 function Vacancy(props) {
+  let [company_logo, setCompanyLogo] = useState(null);
+  let [vacancy, setVacancy] = useState("vacancy");
+  let [description, setDescription] = useState("description");
+  let [description__text, setDescriptionText] = useState("description__text");
+  let [buttonValue, setButtonValue] = useState("more details");
+
+  
+  useEffect(() => {
+    if (props.company_logo === null) {
+      setCompanyLogo(no_image_available);
+    } else {
+      setCompanyLogo(props.company_logo);
+    }
+    // eslint-disable-next-line
+  }, []);
+
+  let handleImageErrored = () => {
+    setCompanyLogo(no_image_available);
+  };
+
+  let handleButtonClick = () => {
+    if (vacancy === "vacancy") {
+      setVacancy("vacancy vacancy__opened");
+      setDescription("description description__opened");
+      setDescriptionText("description__text description__text__opened");
+      setButtonValue("close");
+    } else {
+      setVacancy("vacancy");
+      setDescription("description");
+      setDescriptionText("description__text");
+      setButtonValue("more details");
+    }
+  };
+
   return (
-    <div className="vacancy">
+    <div className={vacancy}>
       <div className="info">
-        <div
-          className="info-img-wrapper"
-          style={{
-            backgroundImage: `url(${
-              props.company_logo === null
-                ? "../img/No_image_available.svg"
-                : props.company_logo
-            })`,
-          }}
-        ></div>
+        <div className="info-img-wrapper">
+          <img
+            className="info-img"
+            alt="logo"
+            src={company_logo}
+            onError={handleImageErrored}
+          />
+        </div>
         <div className="info-text-wrapper">
           <p className="info-text info-text__form">
             <span className="info-text__label">Form: </span>
@@ -38,9 +72,18 @@ function Vacancy(props) {
         </div>
       </div>
 
-      <div className="description">
+      <div className={description}>
         <h3 className="description__header">{props.title}</h3>
-        <div className="description__text">{parse(props.description)}</div>
+        <div className={description__text}>{parse(props.description)}</div>
+        <div className="description__btn-wrapper">
+          <input
+            className="description__btn btn"
+            type="button"
+            id="description__button"
+            value={buttonValue}
+            onClick={handleButtonClick}
+          />
+        </div>
       </div>
     </div>
   );
