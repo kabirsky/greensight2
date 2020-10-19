@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "74745f5e813f4caf1a6bd37847d5a0da",
+    "revision": "bca298134951f77869773b375944cb31",
     "url": "/greensight2/index.html"
   },
   {
-    "revision": "5d48f8a52a1027c90116",
-    "url": "/greensight2/static/css/main.510f4b73.chunk.css"
+    "revision": "6da818c907f0a76958cc",
+    "url": "/greensight2/static/css/main.fb93af5b.chunk.css"
   },
   {
     "revision": "1a145cf41d4dbdcb8ea2",
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/greensight2/static/js/2.4f0b06c6.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "5d48f8a52a1027c90116",
-    "url": "/greensight2/static/js/main.7a093f17.chunk.js"
+    "revision": "6da818c907f0a76958cc",
+    "url": "/greensight2/static/js/main.0315ca9a.chunk.js"
   },
   {
     "revision": "bbdb90b1a8b9c3f50b57",
@@ -30,6 +30,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "a04ac35fad85b678c6dee06a6097ae35",
     "url": "/greensight2/static/media/Cross.a04ac35f.svg"
+  },
+  {
+    "revision": "f8f86ff7d5f5cd8ee30ce3cc73e40b9b",
+    "url": "/greensight2/static/media/Select_Arrow.f8f86ff7.svg"
   },
   {
     "revision": "58f7230b5dcbd35b536054ba112f8799",
