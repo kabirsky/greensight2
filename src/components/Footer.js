@@ -22,9 +22,6 @@ function Footer() {
     /[0-9]/,
     /[0-9]/,
   ];
-  const emailValidation = new RegExp(
-    /^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i
-  );
 
   let isError = false;
   const [name, setName] = useState("");
@@ -57,20 +54,15 @@ function Footer() {
     event.preventDefault();
     isError = false;
     //Проверка ФИО
-    if (name === "") {
+    if (name === "" || name.match(/^[a-z а-яё ,.'-]+$/i) === null) {
       isError = true;
       setErrorName("form-element form-name form-element__error");
     } else {
-      if (name.match(/^[А-ЯЁ\s-]*$/i) === null) {
-        isError = true;
-        setErrorName("form-element form-name form-element__error");
-      } else {
-        setErrorName("form-element form-name");
-      }
+      setErrorName("form-element form-name");
     }
 
     //Проверка емейла
-    if (email === "" || !emailValidation.test(email)) {
+    if (email === "" || email.match(/[^@]+@[^\.]+\..+/i) === null) {
       isError = true;
       setErrorEmail("form-element form-email form-element__error");
     } else {
