@@ -62,7 +62,7 @@ function Footer() {
     }
 
     //Проверка емейла
-    if (email === "" || email.match(/[^@]+@[^\.]+\..+/i) === null) {
+    if (email === "" || email.match(/[^@]+@[^.]+\..+/i) === null) {
       isError = true;
       setErrorEmail("form-element form-email form-element__error");
     } else {

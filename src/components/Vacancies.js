@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import JobApi from "../modules/JobApi";
 
 import getTestValues from "../test/getTestValues";
