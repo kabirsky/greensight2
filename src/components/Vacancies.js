@@ -9,6 +9,7 @@ function Vacancies(props) {
   let [vacanciesJSON, setVacanciesJSON] = useState([]);
   let [vacancies, setVacancies] = useState([]);
   let [end, setEnd] = useState(5);
+  let [targetY, setTargetY] = useState(0);
   let select_value = props.select_value;
   let visibleVacancies =
     select_value === ""
@@ -18,9 +19,6 @@ function Vacancies(props) {
             return val.props.type === select_value;
           })
           .slice(0, end);
-
-  let vacanciesRef = useRef(null);
-  let [focusTarget, setFocusTarget] = useState(-1);
 
   /*Проставить true если надо посмотреть на функционал без API запросов*/
   let isTest = false;
@@ -38,16 +36,20 @@ function Vacancies(props) {
   }, []);
 
   let handleButtonClick = () => {
-    setFocusTarget(end - 1);
+    let y = window.scrollY;
+    setTargetY(y);
     setEnd(end + 5);
+
+    window.onscroll = () => window.scrollTo(0, y); //отключаем скролл во избежание прыжков
   };
 
+  useEffect(() => {
+    window.onscroll = null; //включаем скролл обратно после рендера
+  }, [targetY]);
+
   return (
-    <div className="vacancies" ref={vacanciesRef}>
-      {visibleVacancies.map((val) =>
-        React.cloneElement(val, { focusTarget }, null)
-      )}
-      {/* {visibleVacancies} */}
+    <div className="vacancies">
+      {visibleVacancies}
       <div className="vacancies__more-btn-wrapper">
         <input
           className="vacancies__more-btn btn"

@@ -6,6 +6,7 @@ export default class JobApi {
     const fetchJobs = async () => {
       const response = await fetch(
         "https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json?search=frontend"
+        //"https://jobs.github.com/positions.json?search=frontend"
       );
       const jobs = await response.json();
       console.log(jobs);

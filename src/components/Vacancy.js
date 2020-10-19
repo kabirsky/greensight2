@@ -10,6 +10,7 @@ function Vacancy(props) {
   let [description, setDescription] = useState("description");
   let [description__text, setDescriptionText] = useState("description__text");
   let [buttonValue, setButtonValue] = useState("more details");
+  let [closed, setClosed] = useState(false);
   let vacancyRef = useRef(null);
 
   useEffect(() => {
@@ -22,10 +23,10 @@ function Vacancy(props) {
   }, []);
 
   useEffect(() => {
-    if (props.focusTarget === props.id) {
+    if (closed) {
       window.scrollTo(0, vacancyRef.current.offsetTop);
     }
-  });
+  }, [closed]);
 
   let handleImageErrored = () => {
     setCompanyLogo(no_image_available);
@@ -37,11 +38,13 @@ function Vacancy(props) {
       setDescription("description description__opened");
       setDescriptionText("description__text description__text__opened");
       setButtonValue("close");
+      setClosed(false);
     } else {
       setVacancy("vacancy");
       setDescription("description");
       setDescriptionText("description__text");
       setButtonValue("more details");
+      setClosed(true);
     }
   };
 
