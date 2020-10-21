@@ -71,8 +71,10 @@
   overflow: hidden;
 }
 
-.description__text p {
+.description__text p,
+.description__text h2 {
   font-family: "Roboto", sans-serif;
+  font-weight: normal;
   font-size: 16px;
   line-height: 140%;
   margin-bottom: 16px;
@@ -85,11 +87,7 @@
   height: 100px;
   position: absolute;
   bottom: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0),
-    #ffffff 55%
-  );
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0), #ffffff 55%);
 }
 
 .description__btn-wrapper {
