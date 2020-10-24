@@ -6,6 +6,7 @@ import getTestValues from "../test/getTestValues";
 import "../styles/Vacancies.css";
 
 function Vacancies(props) {
+  // eslint-disable-next-line no-unused-vars
   let [vacanciesJSON, setVacanciesJSON] = useState([]);
   let [vacancies, setVacancies] = useState([]);
   let [end, setEnd] = useState(5);
