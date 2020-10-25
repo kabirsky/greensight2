@@ -1,4 +1,4 @@
-### Ссылка на проект: https://kabirsky.github.io/greensight2/
+### Ссылка на проект: https://kabirsky.github.io/Bicycle-Grid/
 
 ## Что это такое?
  Тестовое задание от компании Greensight. Одностраничный сайт.
